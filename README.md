@@ -1,22 +1,27 @@
-# <img src="https://raw.githubusercontent.com/norganna/asciid-usermacro/master/asciid.png" title="asciid-usermacro" height="30px"> AsciiDoctor User Macro for Confluence.
-User macro to allow GitHub flavoured markdown blocks inside Confluence pages via asciidoctor.js.
+= image:https://raw.githubusercontent.com/norganna/asciid-usermacro/master/asciid.png[asciid-confluence] AsciiDoctor User Macro for Confluence.
 
-## Description
-This macro is designed to render the AsciiDoc body content in the page whilst preserving the original markup code in the macro body, so that consequential edits of the page can update the original code.
-The AsciiDoc code is rendered at page display time by the [asciidoctor.js](https://github.com/asciidoctor/asciidoctor.js) javascript library.
+User macro that allows AsciiDoc (Asciidoctor) blocks inside Confluence pages.
 
-## Installation
-Add the following to your user macros page, which you can find by:
-* going to the **Configuration** page as an administrator 
-* selecting **User Macros** in the left navigation panel (in the **Configuration** block)
-* navigating to **Create a User Macro** page
-* entering the **Information** and **Definition** as per the comments at the top of the following code
-* pasting the code into the **Template** text box
+== Description
 
-## Code
-```
-## Macro name: asciid
-## Macro title: AsciiDoctor markup content
+This macro is designed to render the AsciiDoc body content in the page whilst preserving the original markup code in the macro body, so that subsequent edits of the page can update the original code.
+The AsciiDoc code is rendered at page display time by the https://github.com/asciidoctor/asciidoctor.js[asciidoctor.js] javascript library.
+
+== Installation
+
+Install the macro through the Confluence Administrator Console.
+
+. Open the `Configuration` page as an administrator.
+. Select `Configurations => User Macros => Create a User Macro` in the left navigation panel.
+. Complete the `Information` and `Definition` fields based on the information in the Code section.
+. Paste the code into the `Template` text box.
+
+== Code
+
+[source,text]
+----
+## Macro name: adoc
+## Macro title: AsciiDoc Markup with Asciidoctor
 ## Categories: Formatting
 ## Description: Display content in AsciiDoc format via the asciidoctor.js engine.
 ## Visibility: to all users
@@ -39,8 +44,9 @@ Add the following to your user macros page, which you can find by:
 #end
 #getRandomId()
 
-<div id="asciidcontent_$randomId">
+<div id="asciidcontent_$randomId" class="asciid">
 </div>
+<link type="text/css" rel="stylesheet" href="//www.norganna.com/cdn/css/asciid.css" media="all">
 <script src="//www.norganna.com/cdn/js/asciidoctor.js/dist/asciidoctor-all.js">
 </script>
 <script src="//www.norganna.com/cdn/js/asciidoctor.js/dist/asciidoctor-docbook.js">
@@ -61,30 +67,51 @@ jQuery(function() {
     jQuery('#asciidcontent_$randomId').html(output);
 });
 </script>
-```
+----
 
-## Usage
-This code is safe to include multiple times per page.
-Include on your confluence page by using the `{asciid}` tag like this:
+== Disabling Asciidoctor Foundation Styles
 
-```markdown
-{asciid}
+The macro uses the Foundation Asciidoctor styles to present the code when it is saved.
+
+  <link type="text/css" rel="stylesheet" href="//www.norganna.com/cdn/css/asciid.css" media="all">
+
+If you want to keep the stock Confluence Look and Feel, comment out this line in the macro code.
+
+NOTE: You will need to do some modifications to the Confluence CSS to make sure it adds the correct whitespace present in standard Confluence Wiki pages.
+Confluence does not seem to like <div> blocks with attributes defined, which is standard in Asciidoctor HTML5 output.
+
+== Usage
+
+You can use this Confluence Macro multiple times per page.
+
+Choose one of the following insertion methods:
+
+Use the Pretty Macro::
+  Paste your Asciidoctor text into the code window.
+Use the Raw Macro::
+  Paste your Asciidoctor text between the `{adoc}` tag like this:
+
+.Macro Usage
+[source,asciidoc]
+----
+{adoc}
 = Hello, AsciiDoc!
 Doc Writer <doc@example.com>
 
 An introduction to http://asciidoc.org[AsciiDoc].
 
- 
+
 == Header 2
- 
+
 Content content.
 
 * List item 1
 * List item 2
-{asciid}
-```
+{adoc}
+----
 
-## License
+
+== License
 
 Copyright 2015, Ken Allan, MIT License.
 
