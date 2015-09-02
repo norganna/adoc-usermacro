@@ -39,8 +39,9 @@ Add the following to your user macros page, which you can find by:
 #end
 #getRandomId()
 
-<div id="asciidcontent_$randomId">
+<div id="asciidcontent_$randomId" class="asciid">
 </div>
+<link type="text/css" rel="stylesheet" href="//www.norganna.com/cdn/css/asciid.css" media="all">
 <script src="//www.norganna.com/cdn/js/asciidoctor.js/dist/asciidoctor-all.js">
 </script>
 <script src="//www.norganna.com/cdn/js/asciidoctor.js/dist/asciidoctor-docbook.js">
