@@ -3,7 +3,7 @@
 ## Categories: Formatting
 ## Description: Display content in AsciiDoc format using the asciidoctor.js engine.
 ## Visibility: to all users
-## Icon URL: https://raw.githubusercontent.com/norganna/asciid-usermacro/master/asciid.png
+## Icon URL: https://raw.githubusercontent.com/norganna/adoc-usermacro/master/adoc.png
 ## Documentation URL: http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
 ## Macro has a body: Y
 ## Body processing: Unrendered
@@ -22,9 +22,9 @@
 #end
 #getRandomId()
 
-<div id="asciidcontent_$randomId" class="asciid">
+<div id="adoc-content-$randomId" class="adoc-content">
 </div>
-<link type="text/css" rel="stylesheet" href="//www.norganna.com/cdn/css/asciid.css" media="all">
+<link type="text/css" rel="stylesheet" href="//www.norganna.com/cdn/css/adoc.css" media="all">
 <script src="//www.norganna.com/cdn/js/asciidoctor.js/dist/asciidoctor-all.js">
 </script>
 <script src="//www.norganna.com/cdn/js/asciidoctor.js/dist/asciidoctor-docbook.js">
@@ -42,6 +42,6 @@ jQuery(function() {
         ),
         output = Opal.Asciidoctor.$convert(body, options);
 
-    jQuery('#asciidcontent_$randomId').html(output);
+    jQuery('#adoc-content-$randomId').html(output);
 });
 </script>
