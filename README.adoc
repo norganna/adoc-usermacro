@@ -1,7 +1,11 @@
 :allow-uri-read:
+:sectnums:
+:toc: macro
 = image:https://raw.githubusercontent.com/norganna/adoc-usermacro/master/adoc.png["adoc-usermacro",height=32] AsciiDoctor User Macro for Confluence.
 
 User macro that allows AsciiDoc (Asciidoctor) blocks inside Confluence pages.
+
+toc::[]
 
 == Description
 
@@ -17,11 +21,62 @@ Install the macro through the Confluence Administrator Console.
 . Complete the `Information` and `Definition` fields based on the information in the Code section.
 . Paste the code into the `Template` text box.
 
+NOTE: This macro will work better with an additional Confluence macro installed. See <<Whitespace>> for more information.
+
 == Code
 
-[source,text]
+[source,script]
+----
+## Macro name: adoc
+## Macro title: AsciiDoc Markup with Asciidoctor
+## Categories: Formatting
+## Description: Display content in AsciiDoc format using the asciidoctor.js engine.
+## Visibility: to all users
+## Icon URL: https://raw.githubusercontent.com/norganna/adoc-usermacro/master/adoc.png
+## Documentation URL: http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
+## Macro has a body: Y
+## Body processing: Unrendered
+## Generates: HTML
+##
+## @noparams
+##
+## Developed by: Ken Allan (https://github.com/norganna)
+## Date created: 2015-09-02
 
-include::https://raw.githubusercontent.com/jaredmorgs/adoc-usermacro/master/adoc.velocity
+#set ($randomId="")
+#macro(getRandomId)
+#set ($string="")
+#set ($rand=$string.class.forName("java.util.Random").getConstructor().newInstance())
+#set ($randomId=$rand.nextInt(2147483647).toString())
+#end
+#getRandomId()
+
+<div id="adoc-content-$randomId" class="adoc-content">
+</div>
+<link type="text/css" rel="stylesheet" href="//www.norganna.com/cdn/css/adoc.css" media="all">
+<script src="//www.norganna.com/cdn/js/asciidoctor.js/dist/asciidoctor-all.js">
+</script>
+<script src="//www.norganna.com/cdn/js/asciidoctor.js/dist/asciidoctor-docbook.js">
+</script>
+<script>
+jQuery(function() {
+    var body = $jsonator.convert($body).serialize(),
+        options = Opal.hash2(
+            ['doctype', 'backend', 'attributes'],
+            {
+                doctype: 'article',
+                backend: 'html5',
+                attributes: ['showtitle']
+            }
+        ),
+        output = Opal.Asciidoctor.$convert(body, options);
+
+    jQuery('#adoc-content-$randomId').html(output);
+});
+</script>
+----
+
+NOTE: While best efforts are made to keep the example in the [[Code]] section current, the `adoc.velocity` source should be the canonical reference.
 
 == Disabling Asciidoctor Foundation Styles
 
@@ -64,6 +119,46 @@ Content content.
 {adoc}
 ----
 
+[[Whitespace]]
+== Confluence Pretty Macro Blocks Strip Out Whitespace
+
+You'll notice that if you paste your AsciiDoc text directly into the `{adoc}` pretty macro, all the meaningful whitespace is stripped out. 
+
+There's no polite way of saying this: the Confluence WYSIWYG editor is less than perfect when editing anything *other than* Wiki markup.
+
+To work around this issue, have your Confluence administrator add the https://marketplace.atlassian.com/plugins/com.atlassian.confluence.plugins.editor.confluence-source-editor[Confluence Source Editor] to your instance. 
+
+=== Preparing the Page for AsciiDoc Content
+
+. Install the Confluence Source Editor plugin.
+. Open a Confluence Page
+. Insert the `{adoc}` macro.
+. Save the page
++ 
+NOTE: The Source Editor is only available after the initial page save.
+
+=== Inserting AsciiDoctor Content
+
+. Reopen the page for editing.
+. Click the `< >` symbol in the top right corner of the editing window.
+. You will see HTML Markup similar to the following
++
+.Confluence HTML View
+[source,HTML]
+----
+<p>
+  <ac:structured-macro ac:name="adoc">
+    <ac:parameter ac:name="atlassian-macro-output-type">INLINE</ac:parameter>
+    <ac:plain-text-body><![CDATA[ ]]></ac:plain-text-body>
+  </ac:structured-macro>
+</p>
+
+----
+. Expand the whitespace between the `<![CDATA[ ]]>` block so the `]]>` is on a few lines below the preceeding CDATA tag.
+. Paste in your AsciiDoc markup into the macro. 
++
+NOTE: Whitespace from your original file is preserved.
+. Save the changes in the file.
 
 == License
 
