@@ -1,4 +1,4 @@
-= image:https://raw.githubusercontent.com/norganna/adoc-usermacro/master/adoc.png[adoc-usermacro] AsciiDoctor User Macro for Confluence.
+= image:https://raw.githubusercontent.com/norganna/adoc-usermacro/master/adoc.png["adoc-usermacro",height=32] AsciiDoctor User Macro for Confluence.
 
 User macro that allows AsciiDoc (Asciidoctor) blocks inside Confluence pages.
 
