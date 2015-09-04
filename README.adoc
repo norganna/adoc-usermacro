@@ -107,7 +107,7 @@ NOTE: Whitespace from your original file is preserved.
 
 To see an example of the process, check out this video:
 
-video::https://github.com/norganna/adoc-usermacro/blob/master/howto/paste-plaintext-with-sourceeditor-addon.mp4?raw=true[width=640]
+https://github.com/norganna/adoc-usermacro/blob/master/howto/paste-plaintext-with-sourceeditor-addon.mp4?raw=true[Video: Paste plaintext with free SourceEditor AddOn (270KB)]
 
 == License
 
