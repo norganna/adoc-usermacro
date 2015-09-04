@@ -14,60 +14,11 @@ Install the macro through the Confluence Administrator Console.
 . Open the `Configuration` page as an administrator.
 . Select `Configurations => User Macros => Create a User Macro` in the left navigation panel.
 . Complete the `Information` and `Definition` fields based on the information in the Code section.
-. Paste the code into the `Template` text box.
+. Paste the velocity template code (see below) into the `Template` text box.
 
 == Code
 
-[source,text]
-----
-## Macro name: adoc
-## Macro title: AsciiDoc Markup with Asciidoctor
-## Categories: Formatting
-## Description: Display content in AsciiDoc format using the asciidoctor.js engine.
-## Visibility: to all users
-## Icon URL: https://raw.githubusercontent.com/norganna/adoc-usermacro/master/adoc.png
-## Documentation URL: http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
-## Macro has a body: Y
-## Body processing: Unrendered
-## Generates: HTML
-##
-## @noparams
-##
-## Developed by: Ken Allan (https://github.com/norganna)
-## Date created: 2015-09-02
-
-#set ($randomId="")
-#macro(getRandomId)
-#set ($string="")
-#set ($rand=$string.class.forName("java.util.Random").getConstructor().newInstance())
-#set ($randomId=$rand.nextInt(2147483647).toString())
-#end
-#getRandomId()
-
-<div id="adoc-content-$randomId" class="adoc-content">
-</div>
-<link type="text/css" rel="stylesheet" href="//www.norganna.com/cdn/css/adoc.css" media="all">
-<script src="//www.norganna.com/cdn/js/asciidoctor.js/dist/asciidoctor-all.js">
-</script>
-<script src="//www.norganna.com/cdn/js/asciidoctor.js/dist/asciidoctor-docbook.js">
-</script>
-<script>
-jQuery(function() {
-    var body = $jsonator.convert($body).serialize(),
-        options = Opal.hash2(
-            ['doctype', 'backend', 'attributes'],
-            {
-                doctype: 'article',
-                backend: 'html5',
-                attributes: ['showtitle']
-            }
-        ),
-        output = Opal.Asciidoctor.$convert(body, options);
-
-    jQuery('#adoc-content-$randomId').html(output);
-});
-</script>
-----
+The velocity template source code is available in the https://github.com/norganna/adoc-usermacro/blob/master/adoc.velocity[adoc.velocity] file on GitHub.
 
 == Disabling Asciidoctor Foundation Styles
 
