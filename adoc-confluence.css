@@ -1,0 +1,48 @@
+.wiki-content .adoc-content h1:first-child,
+.wiki-content .adoc-content h2:first-child,
+.wiki-content .adoc-content h3:first-child,
+.wiki-content .adoc-content h4:first-child,
+.wiki-content .adoc-content h5:first-child,
+.wiki-content .adoc-content h6:first-child {
+    margin-top: 20px;
+}
+
+.adoc-content p:first-child,
+.adoc-content ul:first-child,
+.adoc-content ol:first-child,
+.adoc-content dl:first-child,
+.adoc-content h1:first-child,
+.adoc-content h2:first-child,
+.adoc-content h3:first-child,
+.adoc-content h4:first-child,
+.adoc-content h5:first-child,
+.adoc-content h6:first-child,
+.adoc-content blockquote:first-child,
+.adoc-content pre:first-child,
+.adoc-content form.aui:first-child,
+.adoc-content table.aui:first-child,
+.adoc-content .aui-tabs:first-child,
+.adoc-content .aui-panel:first-child,
+.adoc-content .aui-group:first-child {
+    margin-top: 10px;
+}
+
+.adoc-content li > p:first-child {
+    margin-top: 0px;
+}
+
+.adoc-content .literalblock pre,
+.adoc-content .listingblock pre:not(.highlight),
+.adoc-content .listingblock pre[class="highlight"],
+.adoc-content .listingblock pre[class^="highlight "],
+.adoc-content .listingblock pre.CodeRay,
+.adoc-content .listingblock pre.prettyprint {
+    background: #f7f7f8;
+    background: rgba(0,0,0, 0.05);
+}
+
+.adoc-content div#toctitle {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 30px 0 0 0;
+}
