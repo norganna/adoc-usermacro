@@ -14,17 +14,21 @@
 ## Developed by: Ken Allan (https://github.com/norganna)
 ## Date created: 2015-09-02
 
+## A handy macro to generate a new random ID between 0 and maxint each time you call it:
 #set ($randomId="")
 #macro(getRandomId)
 #set ($string="")
 #set ($rand=$string.class.forName("java.util.Random").getConstructor().newInstance())
 #set ($randomId=$rand.nextInt(2147483647).toString())
 #end
-#getRandomId()
 
+#getRandomId()
 <div id="adoc-content-$randomId" class="adoc-content">
 </div>
-<link type="text/css" rel="stylesheet" href="//www.norganna.com/cdn/css/adoc.css" media="all">
+
+## This CSS is the Foundation AsciiDoctor style, it will make articles look different to standard confluence styles.
+<link type="text/css" rel="stylesheet" href="//www.norganna.com/cdn/css/adoc-foundation.css" media="all">
+## If you want to achieve something closer to the standard Confluence styling, replace adoc-foundation with adoc-confluence above.
 
 ## This CSS is the FontAwesome font which enables the admonition icons.
 <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" media="all">
@@ -41,6 +45,8 @@ jQuery(function() {
             {
                 doctype: 'article',
                 backend: 'html5',
+
+##              If you want to implement any default attributes, enter them below (showtitle shows the root adoc title):
                 attributes: ['showtitle']
             }
         ),
