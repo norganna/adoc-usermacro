@@ -1,6 +1,10 @@
+:sectnums:
+:toc: macro
 = image:https://raw.githubusercontent.com/norganna/adoc-usermacro/master/adoc.png["adoc-usermacro",height=32] Asciidoctor User Macro for Confluence.
 
 User macro that allows AsciiDoc (Asciidoctor) blocks inside Confluence pages.
+
+toc::[]
 
 == Description
 
@@ -15,6 +19,8 @@ Install the macro through the Confluence Administrator Console.
 . Select `Configurations => User Macros => Create a User Macro` in the left navigation panel.
 . Complete the `Information` and `Definition` fields based on the information in the Code section.
 . Paste the velocity template code (see below) into the `Template` text box.
+
+NOTE: This macro will work better with an additional Confluence macro installed. See <<Whitespace>> for more information.
 
 == Code
 
@@ -58,6 +64,50 @@ Content content.
 {adoc}
 ----
 
+[[Whitespace]]
+== Confluence Pretty Macro Blocks Strip Out Whitespace
+
+You'll notice that if you paste your AsciiDoc text directly into the `{adoc}` pretty macro, all the meaningful whitespace is stripped out. 
+
+There's no polite way of saying this: the Confluence WYSIWYG editor is less than perfect when editing anything *other than* Wiki markup.
+
+To work around this issue, have your Confluence administrator add the https://marketplace.atlassian.com/plugins/com.atlassian.confluence.plugins.editor.confluence-source-editor[Confluence Source Editor] to your instance. 
+
+=== Preparing the Page for AsciiDoc Content
+
+. Install the Confluence Source Editor plugin.
+. Open a Confluence Page
+. Insert the `{adoc}` macro.
+. Save the page
++ 
+NOTE: The Source Editor is only available after the initial page save.
+
+=== Inserting AsciiDoctor Content
+
+. Reopen the page for editing.
+. Click the `< >` symbol in the top right corner of the editing window.
+. You will see HTML Markup similar to the following
++
+.Confluence HTML View
+[source,HTML]
+----
+<p>
+  <ac:structured-macro ac:name="adoc">
+    <ac:parameter ac:name="atlassian-macro-output-type">INLINE</ac:parameter>
+    <ac:plain-text-body><![CDATA[ ]]></ac:plain-text-body>
+  </ac:structured-macro>
+</p>
+
+----
+. Expand the whitespace between the `<![CDATA[ ]]>` block so the `]]>` is on a few lines below the preceeding CDATA tag.
+. Paste in your AsciiDoc markup into the macro. 
++
+NOTE: Whitespace from your original file is preserved.
+. Save the changes in the file.
+
+To see an example of the process, check out this video:
+
+video::https://github.com/norganna/adoc-usermacro/blob/master/howto/paste-plaintext-with-sourceeditor-addon.mp4?raw=true[width=640]
 
 == License
 
