@@ -71,43 +71,27 @@ You'll notice that if you paste your AsciiDoc text directly into the `{adoc}` pr
 
 There's no polite way of saying this: the Confluence WYSIWYG editor is less than perfect when editing anything *other than* Wiki markup.
 
-To work around this issue, have your Confluence administrator add the https://marketplace.atlassian.com/plugins/com.atlassian.confluence.plugins.editor.confluence-source-editor[Confluence Source Editor] to your instance. 
+=== Bring up the Insert Markup dialog
 
-=== Preparing the Page for AsciiDoc Content
+. Create or edit your page in Confluence.
+. Position your cursor at the location you want your document inserted.
+. Click the drop-down button in the editor toolbar denoted by a plus icon.
+. Select the Markup option from the drop-down menu.
 
-. Install the Confluence Source Editor plugin.
-. Open a Confluence Page
-. Insert the `{adoc}` macro.
-. Save the page
-+ 
-NOTE: The Source Editor is only available after the initial page save.
+=== Enter the desired Confluence markup code directly
 
-=== Inserting AsciiDoctor Content
-
-. Reopen the page for editing.
-. Click the `< >` symbol in the top right corner of the editing window.
-. You will see HTML Markup similar to the following
+. Type {adoc} and press enter.
+. Paste your AsciiDoc code and press enter.
+. Type {adoc} again at the end.
 +
-.Confluence HTML View
-[source,HTML]
-----
-<p>
-  <ac:structured-macro ac:name="adoc">
-    <ac:parameter ac:name="atlassian-macro-output-type">INLINE</ac:parameter>
-    <ac:plain-text-body><![CDATA[ ]]></ac:plain-text-body>
-  </ac:structured-macro>
-</p>
+NOTE: The right side of the window will update with the content to be inserted.
+. Click the Insert button at the bottom of the dialog to complete the insertion.
 
-----
-. Expand the whitespace between the `<![CDATA[ ]]>` block so the `]]>` is on a few lines below the preceeding CDATA tag.
-. Paste in your AsciiDoc markup into the macro. 
-+
-NOTE: Whitespace from your original file is preserved.
-. Save the changes in the file.
+=== Video example
 
 To see an example of the process, check out this video:
 
-https://github.com/norganna/adoc-usermacro/blob/master/howto/paste-plaintext-with-sourceeditor-addon.mp4?raw=true[Video: Paste plaintext with free SourceEditor AddOn (270KB)]
+https://github.com/norganna/adoc-usermacro/blob/master/howto/paste-plaintext-with-insert-markup.mp4?raw=true[Video: Paste plaintext with built in Insert Markup (376KB)]
 
 == License
 

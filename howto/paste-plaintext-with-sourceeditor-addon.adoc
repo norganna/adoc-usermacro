@@ -1,0 +1,52 @@
+:sectnums:
+:toc: macro
+= image:https://raw.githubusercontent.com/norganna/adoc-usermacro/master/adoc.png["adoc-usermacro",height=32] Pasting plaintext with SourceEditor AddOn
+
+User macro that allows AsciiDoc (Asciidoctor) blocks inside Confluence pages.
+
+toc::[]
+
+== Preparation
+
+To edit confluence pages at the source level, have your Confluence administrator add the https://marketplace.atlassian.com/plugins/com.atlassian.confluence.plugins.editor.confluence-source-editor[Confluence Source Editor] to your instance. 
+
+If you are unable to use this method you can use the other method by https://github.com/norganna/adoc-usermacro/blob/master/howto/paste-plaintext-with-insert-markup.adoc[inserting markup] code insead.
+
+== Using the SourceEditor AddOn
+
+=== Preparing the Page for AsciiDoc Content
+
+. Install the Confluence Source Editor plugin.
+. Open a Confluence Page
+. Insert the `{adoc}` macro.
+. Save the page
++ 
+NOTE: The Source Editor is only available after the initial page save.
+
+=== Inserting AsciiDoctor Content
+
+. Reopen the page for editing.
+. Click the `< >` symbol in the top right corner of the editing window.
+. You will see HTML Markup similar to the following
++
+.Confluence HTML View
+[source,HTML]
+----
+<p>
+  <ac:structured-macro ac:name="adoc">
+    <ac:parameter ac:name="atlassian-macro-output-type">INLINE</ac:parameter>
+    <ac:plain-text-body><![CDATA[ ]]></ac:plain-text-body>
+  </ac:structured-macro>
+</p>
+
+----
+. Expand the whitespace between the `<![CDATA[ ]]>` block so the `]]>` is on a few lines below the preceeding CDATA tag.
+. Paste in your AsciiDoc markup into the macro. 
++
+NOTE: Whitespace from your original file is preserved.
+. Save the changes in the file.
+
+To see an example of the process, check out this video:
+
+https://github.com/norganna/adoc-usermacro/blob/master/howto/paste-plaintext-with-sourceeditor-addon.mp4?raw=true[Video: Paste plaintext with free SourceEditor AddOn (270KB)]
+
