@@ -27,6 +27,12 @@
     margin-top: 10px;
 }
 
+.adoc-content ul:last-child,
+.adoc-content ol:last-child,
+.adoc-content dl:last-child {
+    margin-bottom: 10px;
+}
+
 .adoc-content li > p:first-child {
     margin-top: 0px;
 }
