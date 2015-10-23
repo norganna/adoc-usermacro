@@ -33,7 +33,8 @@
     margin-bottom: 10px;
 }
 
-.adoc-content li > p:first-child {
+.adoc-content li > p:first-child,
+td.tableblock > p:first-child {
     margin-top: 0px;
 }
 
