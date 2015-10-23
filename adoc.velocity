@@ -61,9 +61,10 @@ jQuery(function() {
 
 #if($style == "confluence")
     setTimeout(function() {
-        jQuery('table.tableblock').addClass('confluenceTable');
-        jQuery('th.tableblock').addClass('confluenceTh');
-        jQuery('td.tableblock').addClass('confluenceTd');
+        jQuery('.adoc-content table.tableblock').addClass('confluenceTable');
+        jQuery('.adoc-content th.tableblock').addClass('confluenceTh');
+        jQuery('.adoc-content td.tableblock').addClass('confluenceTd');
+        jQuery('.adoc-content .dlist > .title').addClass('substeptitle');
     }, 0);
 #end
 });
