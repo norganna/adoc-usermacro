@@ -50,6 +50,8 @@ jQuery(function() {
             {
                 doctype: 'article',
                 backend: 'html5',
+##              Adding safeMode will allow us to directly include Stash and Git Raw files in the macro:
+                safeMode: 'safe',
 
 ##              If you want to implement any default attributes, enter them below (showtitle shows the root adoc title):
                 attributes: ['showtitle']
