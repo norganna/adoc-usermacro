@@ -52,7 +52,7 @@ jQuery(function() {
                 backend: 'html5',
 
 ##              If you want to implement any default attributes, enter them below (showtitle shows the root adoc title):
-                attributes: ['showtitle']
+                attributes: ['showtitle', 'allow-uri-read']
             }
         ),
         output = Opal.Asciidoctor.$convert(body, options);
