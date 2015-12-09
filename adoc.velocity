@@ -45,16 +45,12 @@
 <script>
 jQuery(function() {
     var body = $jsonator.convert($body).serialize(),
-        options = Opal.hash2(
-            ['doctype', 'backend', 'attributes'],
-            {
-                doctype: 'article',
-                backend: 'html5',
-
-##              If you want to implement any default attributes, enter them below (showtitle shows the root adoc title):
-                attributes: ['showtitle', 'allow-uri-read']
-            }
-        ),
+        options = Opal.hash({
+            doctype: 'article',
+            backend: 'html5',
+            safe: 'safe',
+            attributes: ['showtitle', 'allow-uri-read']
+        }),
         output = Opal.Asciidoctor.$convert(body, options);
 
     jQuery('#adoc-content-$randomId').html(output);
