@@ -1,6 +1,6 @@
 :sectnums:
 :toc: macro
-= image:https://raw.githubusercontent.com/norganna/adoc-usermacro/master/adoc.png["adoc-usermacro",height=32] Pasting plaintext with SourceEditor AddOn
+= image:https://raw.githubusercontent.com/norganna/adoc-usermacro/master/adoc.png["adoc-usermacro",height=32] Pasting Plain Text with the SourceEditor Add-on
 
 User macro that allows AsciiDoc (Asciidoctor) blocks inside Confluence pages.
 
@@ -8,11 +8,11 @@ toc::[]
 
 == Preparation
 
-To edit confluence pages at the source level, have your Confluence administrator add the https://marketplace.atlassian.com/plugins/com.atlassian.confluence.plugins.editor.confluence-source-editor[Confluence Source Editor] to your instance. 
+To edit confluence pages at the source level, have your Confluence administrator add the https://marketplace.atlassian.com/plugins/com.atlassian.confluence.plugins.editor.confluence-source-editor[Confluence Source Editor] to your instance.
 
-If you are unable to use this method you can use the other method by https://github.com/norganna/adoc-usermacro/blob/master/howto/paste-plaintext-with-insert-markup.adoc[inserting markup] code insead.
+NOTE: If you are unable to use this method you can use the https://github.com/norganna/adoc-usermacro/blob/master/howto/paste-plaintext-with-insert-markup.adoc[Insert Markup] method.
 
-== Using the SourceEditor AddOn
+== Using the Source Editor Add-on
 
 === Preparing the Page for AsciiDoc Content
 
@@ -20,10 +20,13 @@ If you are unable to use this method you can use the other method by https://git
 . Open a Confluence Page
 . Insert the `{adoc}` macro.
 . Save the page
-+ 
++
 NOTE: The Source Editor is only available after the initial page save.
 
 === Inserting AsciiDoctor Content
+
+.Insert AsciiDoc with Source Editor Plug-in
+video::howto/paste-plaintext-with-sourceeditor-addon.mpr[width=640]
 
 . Reopen the page for editing.
 . Click the `< >` symbol in the top right corner of the editing window.
@@ -41,12 +44,7 @@ NOTE: The Source Editor is only available after the initial page save.
 
 ----
 . Expand the whitespace between the `<![CDATA[ ]]>` block so the `]]>` is on a few lines below the preceeding CDATA tag.
-. Paste in your AsciiDoc markup into the macro. 
+. Paste in your AsciiDoc markup into the macro.
 +
 NOTE: Whitespace from your original file is preserved.
 . Save the changes in the file.
-
-To see an example of the process, check out this video:
-
-https://github.com/norganna/adoc-usermacro/blob/master/howto/paste-plaintext-with-sourceeditor-addon.mp4?raw=true[Video: Paste plaintext with free SourceEditor AddOn (270KB)]
-

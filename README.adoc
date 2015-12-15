@@ -1,6 +1,7 @@
 :sectnums:
 :toc: macro
-= image:https://raw.githubusercontent.com/norganna/adoc-usermacro/master/adoc.png["adoc-usermacro",height=32] Asciidoctor User Macro for Confluence.
+
+= image:https://raw.githubusercontent.com/norganna/adoc-usermacro/master/adoc.png["adoc-usermacro",height=32] Asciidoctor User Macro for Confluence
 
 User macro that allows AsciiDoc (Asciidoctor) blocks inside Confluence pages.
 
@@ -41,11 +42,12 @@ You can use this Confluence Macro multiple times per page.
 Choose one of the following insertion methods:
 
 Use the Pretty Macro::
-  Paste your Asciidoctor text into the code window.
+  Paste your Asciidoctor text into the code window, but be aware of the functionality in <<Whitespace>>.
 Use the Raw Macro::
-  Paste your Asciidoctor text between the `{adoc}` tag like this:
+  Paste your Asciidoctor text between the `{adoc}` tag as suggested in <<Raw_Macro>>.
 
-.Macro Usage
+[[Raw_Macro]]
+.Raw Macro Usage
 [source,asciidoc]
 ----
 {adoc}
@@ -53,7 +55,6 @@ Use the Raw Macro::
 Doc Writer <doc@example.com>
 
 An introduction to http://asciidoc.org[AsciiDoc].
-
 
 == Header 2
 
@@ -65,21 +66,23 @@ Content content.
 ----
 
 [[Whitespace]]
-== Confluence Pretty Macro Blocks Strip Out Whitespace
+== Work-around for Confluence Whitespace Issues
 
-You'll notice that if you paste your AsciiDoc text directly into the `{adoc}` pretty macro, all the meaningful whitespace is stripped out. 
+You'll notice that if you paste your AsciiDoc text directly into the `{adoc}` pretty macro, all the meaningful whitespace is stripped out.
 
 There's no polite way of saying this: the Confluence WYSIWYG editor is less than perfect when editing anything *other than* Wiki markup.
 
-=== Bring up the Insert Markup dialog
+=== Use The Insert Markup Feature
 
+Use the `Insert Markup` dialog to work around this issue.
+
+.How To Load the Insert Markup dialog
 . Create or edit your page in Confluence.
 . Position your cursor at the location you want your document inserted.
 . Click the drop-down button in the editor toolbar denoted by a plus icon.
 . Select the Markup option from the drop-down menu.
 
-=== Enter the desired Confluence markup code directly
-
+.How To Insert AsciiDoc Content in Insert Markup dialog.
 . Type {adoc} and press enter.
 . Paste your AsciiDoc code and press enter.
 . Type {adoc} again at the end.
@@ -87,11 +90,12 @@ There's no polite way of saying this: the Confluence WYSIWYG editor is less than
 NOTE: The right side of the window will update with the content to be inserted.
 . Click the Insert button at the bottom of the dialog to complete the insertion.
 
-=== Video example
+.Insert AsciiDoc with the Insert Markup Function
+video::howto/paste-plaintext-with-insert-markup.mp4[width=640]
 
-To see an example of the process, check out this video:
+=== Use The Source Editor Plug-in
 
-https://github.com/norganna/adoc-usermacro/blob/master/howto/paste-plaintext-with-insert-markup.mp4?raw=true[Video: Paste plaintext with built in Insert Markup (376KB)]
+include::howto/paste-plaintext-with-sourceeditor-addon.adoc[lines=9..-1, leveloffset=+2]
 
 == License
 
