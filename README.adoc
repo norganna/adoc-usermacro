@@ -91,9 +91,13 @@ NOTE: The right side of the window will update with the content to be inserted.
 . Click the Insert button at the bottom of the dialog to complete the insertion.
 
 .Insert AsciiDoc with the Insert Markup Function
+https://github.com/norganna/adoc-usermacro/blob/master/howto/paste-plaintext-with-insert-markup.mp4?raw=true[Download Video]
+
 video::howto/paste-plaintext-with-insert-markup.mp4[width=640]
 
 === Use The Source Editor Plug-in
+
+NOTE: Click the link if you are viewing on GitHub. Inline include works locally.
 
 include::howto/paste-plaintext-with-sourceeditor-addon.adoc[lines=9..-1, leveloffset=+2]
 

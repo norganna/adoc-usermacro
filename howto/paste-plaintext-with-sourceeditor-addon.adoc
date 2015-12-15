@@ -26,7 +26,9 @@ NOTE: The Source Editor is only available after the initial page save.
 === Inserting AsciiDoctor Content
 
 .Insert AsciiDoc with Source Editor Plug-in
-video::howto/paste-plaintext-with-sourceeditor-addon.mpr[width=640]
+https://github.com/norganna/adoc-usermacro/blob/master/howto/paste-plaintext-with-sourceeditor-addon.mp4?raw=true[Download Video]
+
+video::howto/paste-plaintext-with-sourceeditor-addon.mp4[width=640]
 
 . Reopen the page for editing.
 . Click the `< >` symbol in the top right corner of the editing window.
