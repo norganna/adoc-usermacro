@@ -9,6 +9,8 @@ toc::[]
 
 == Description
 
+NOTE: This README will render better if you view the RAW file in conjunction with the https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia?hl=en[Chrome AsciiDoctor.js Live Preview Extension].
+
 This macro is designed to render the AsciiDoc body content in the page whilst preserving the original markup code in the macro body, so that subsequent edits of the page can update the original code.
 The AsciiDoc code is rendered at page display time by the https://github.com/asciidoctor/asciidoctor.js[asciidoctor.js] javascript library.
 
@@ -33,7 +35,13 @@ The macro uses the Foundation Asciidoctor styles by default to present the code 
 
   <link type="text/css" rel="stylesheet" href="//www.norganna.com/cdn/css/adoc-foundation.css" media="all">
 
-If you want to get the stock Confluence Look and Feel, change the css filename to adoc-confluence.css instead. If you remove this class completely you will be left with a mess due to the heavy use of container <div>s in the Asciidoctor HTML5 output
+If you want to get the stock Confluence Look and Feel, change the css filename to `adoc-confluence.css` instead.
+
+
+  <link type="text/css" rel="stylesheet" href="//www.norganna.com/cdn/css/adoc-confluence.css" media="all">
+
+
+If you remove this class completely you will be left with a mess due to the heavy use of container <div>s in the Asciidoctor HTML5 output.
 
 == Usage
 
